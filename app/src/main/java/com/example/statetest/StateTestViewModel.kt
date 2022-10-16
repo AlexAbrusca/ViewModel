@@ -15,26 +15,22 @@ class StateTestViewModel: ViewModel() {
     val uiState: StateFlow<StateTestUiState> = _uiState.asStateFlow()
 
     private var counter by mutableStateOf(0)
-
     private var counterList = mutableStateListOf<Int>()
 
 
     fun updateCounter() {
         counter++
         counterList.add(counter)
-        _uiState.value = StateTestUiState(
-            currentCounter = counter,
-            counterSum = counterList.sum()
-        )
     }
     fun reset(){
         counter = 0
         counterList.clear()
+    }
+    fun updateState(){
         _uiState.value = StateTestUiState(
             currentCounter = counter,
             counterSum = counterList.sum()
         )
-
     }
 }
 

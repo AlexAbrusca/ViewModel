@@ -71,31 +71,16 @@ fun AppStateTest (
             )
         }
         Spacer(modifier = Modifier.height(20.dp))
-        Button(
-            onClick ={stateTestViewModel.updateCounter()},
-            colors = ButtonDefaults.buttonColors(MaterialTheme.colors.secondary),
-            shape = MaterialTheme.shapes.medium
-
-        ) {
-            Text(
-                text = "ADD",
-                fontSize = 30.sp
-            )
+        ButtonType(text = "ADD") {
+            stateTestViewModel.updateCounter()
+            stateTestViewModel.updateState()
         }
         Spacer(modifier = Modifier.height(20.dp))
-        Button(
-            onClick ={stateTestViewModel.reset()},
-            colors = ButtonDefaults.buttonColors(MaterialTheme.colors.secondary),
-            shape = MaterialTheme.shapes.medium
-        ) {
-            Text(
-                text = "Reset",
-                fontSize = 30.sp
-            )
+        ButtonType(text = "Reset") {
+            stateTestViewModel.reset()
+            stateTestViewModel.updateState()
         }
     }
-
-
 }
 
 @Preview(showBackground = true)
